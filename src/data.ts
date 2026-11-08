@@ -39,7 +39,7 @@ export const social: {
   email: EMAIL,
   github: 'https://github.com/moiz-imam-buriro',
   linkedin: 'www.linkedin.com/in/moiz-imam',
-  upwork: '',
+  upwork: 'https://www.upwork.com/freelancers/~016c1e3347fd963b3f?mp_source=share',
   fiverr: '',
 };
 
@@ -195,5 +195,6 @@ export const contact: {
     { label: 'Email me', kind: 'mailto', href: `mailto:${EMAIL}` },
     { label: 'GitHub', kind: 'link', href: 'https://github.com/moiz-imam-buriro' },
     { label: 'LinkedIn', kind: 'link', href: 'https://www.linkedin.com/in/moiz-imam' },
+    { label: 'Upwork', kind: 'link', href: 'https://www.upwork.com/freelancers/~016c1e3347fd963b3f?mp_source=share'},
   ],
 };
