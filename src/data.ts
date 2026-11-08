@@ -4,7 +4,7 @@ export function gmailUrl(subject?: string, body?: string): string {
   const params = new URLSearchParams({ view: 'cm', fs: '1', to: EMAIL });
   if (subject) params.set('su', subject);
   if (body) params.set('body', body);
-  return `https://mail.google.com/mail?${params.toString()}`;
+  return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
 type NavLink = { label: string; href: string };
@@ -38,7 +38,7 @@ export const social: {
 } = {
   email: EMAIL,
   github: 'https://github.com/moiz-imam-buriro',
-  linkedin: '',
+  linkedin: 'www.linkedin.com/in/moiz-imam',
   upwork: '',
   fiverr: '',
 };
@@ -135,7 +135,7 @@ export const projects: {
         {
           label: 'Request demo access',
           kind: 'mailto',
-          href: `mailto:${EMAIL}?subject=Demo access request: Website Monitor Agent&body=Hi Moiz, I would like demo access to the Website Monitor Agent. My name: `,
+          href: `mailto:${EMAIL}?subject=${encodeURIComponent('Demo access request: Website Monitor Agent')}&body=${encodeURIComponent('Hi Moiz, I would like demo access to the Website Monitor Agent. My name: ')}`,
         },
         { label: 'GitHub', kind: 'link', href: 'https://github.com/moiz-imam-buriro/website-monitor-agent' },
       ],
@@ -194,5 +194,6 @@ export const contact: {
   buttons: [
     { label: 'Email me', kind: 'mailto', href: `mailto:${EMAIL}` },
     { label: 'GitHub', kind: 'link', href: 'https://github.com/moiz-imam-buriro' },
+    { label: 'LinkedIn', kind: 'link', href: 'https://www.linkedin.com/in/moiz-imam' },
   ],
 };
