@@ -1,3 +1,4 @@
+
 import { ArrowUpRight } from 'lucide-react';
 import { contact, social, EMAIL } from '@/data';
 import { EmailActions } from '@/components/EmailActions';
@@ -13,13 +14,12 @@ export function Contact() {
           >
             {contact.title}
           </h2>
+
           <p className="mt-4 text-[16px] leading-[1.65] text-muted sm:text-[17px]">
             {contact.text}
           </p>
 
-          <p
-            className="mt-8 select-text break-words text-[20px] font-medium tracking-tight text-text sm:text-[24px]"
-          >
+          <p className="mt-8 select-text break-words text-[20px] font-medium tracking-tight text-text sm:text-[24px]">
             {EMAIL}
           </p>
 
@@ -31,15 +31,20 @@ export function Contact() {
           </div>
 
           <div className="mt-3 flex flex-wrap gap-3">
-            <a
-              href={contact.buttons[1].href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-border px-6 text-[15px] font-medium text-text transition-colors hover:border-accent hover:text-accent"
-            >
-              {contact.buttons[1].label}
-              <ArrowUpRight size={16} />
-            </a>
+            {contact.buttons
+              .filter((button) => button.kind === 'link')
+              .map((button) => (
+                <a
+                  key={button.label}
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-border px-6 text-[15px] font-medium text-text transition-colors hover:border-accent hover:text-accent"
+                >
+                  {button.label}
+                  <ArrowUpRight size={16} />
+                </a>
+              ))}
           </div>
         </div>
       </div>
