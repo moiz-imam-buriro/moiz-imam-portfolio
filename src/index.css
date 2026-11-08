@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text: #1F2328;
+    --muted: #5C6370;
+    --border: #E5E7EB;
+    --accent: #0F9D8F;
+    --accent-hover: #0B7F74;
+    --accent-soft: #E7F5F3;
+  }
+
+  [data-theme='dark'] {
+    --bg: #16191D;
+    --surface: #1E2227;
+    --text: #F2F2EE;
+    --muted: #A0A6AE;
+    --border: #2C3238;
+    --accent: #2DBFAE;
+    --accent-hover: #4FD0C1;
+    --accent-soft: #13332F;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  a, button {
+    color: inherit;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .container-px {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+}
+
+/* Scroll fade-in */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
